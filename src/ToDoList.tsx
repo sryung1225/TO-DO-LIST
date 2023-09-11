@@ -1,12 +1,18 @@
 import { useForm } from "react-hook-form";
 
 function ToDoList() {
-  const { register, watch, handleSubmit, formState } = useForm();
-  const onValid = (data: any) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormData>({
+    defaultValues: {
+      email: "@naver.com",
+    },
+  });
+  const onValid = (data: IFormData) => {
     console.log(data);
   };
-  console.log(watch());
-  console.log(formState.errors);
   return (
     <div>
       <form
@@ -14,20 +20,29 @@ function ToDoList() {
         onSubmit={handleSubmit(onValid)}
       >
         <input
-          {...register("toDo1", { required: true, minLength: 10 })}
-          placeholder="Write a to do 1"
-        />
-        <input
-          {...register("toDo2", {
-            required: "ToDo2 is required",
-            minLength: { value: 10, message: "ToDo2 is too short" },
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@naver.com$/,
+              message: "Only naver.com email allowed",
+            },
           })}
-          placeholder="Write a to do 2"
+          placeholder="123@naver.com"
         />
+        <span>{errors?.email?.message}</span>
         <button>Add</button>
       </form>
     </div>
   );
+}
+
+interface IFormData {
+  errors: {
+    email: {
+      message: string;
+    };
+  };
+  email: string;
 }
 
 export default ToDoList;
