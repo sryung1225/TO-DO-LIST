@@ -5,13 +5,21 @@ function ToDoList() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<IFormData>({
     defaultValues: {
       email: "@naver.com",
     },
   });
   const onValid = (data: IFormData) => {
-    console.log(data);
+    if (data.password !== data.passwordConfirm) {
+      setError(
+        "passwordConfirm",
+        { message: "Password is different" },
+        { shouldFocus: true }
+      );
+    }
+    setError("extraError", { message: "Server is offline" });
   };
   return (
     <div>
@@ -19,6 +27,20 @@ function ToDoList() {
         style={{ display: "flex", flexDirection: "column" }}
         onSubmit={handleSubmit(onValid)}
       >
+        <input
+          {...register("password", {
+            required: true,
+            minLength: 10,
+            maxLength: 20,
+          })}
+        />
+        <span>{errors?.password?.message}</span>
+        <input
+          {...register("passwordConfirm", {
+            required: true,
+          })}
+        />
+        <span>{errors?.passwordConfirm?.message}</span>
         <input
           {...register("email", {
             required: "Email is required",
@@ -31,18 +53,17 @@ function ToDoList() {
         />
         <span>{errors?.email?.message}</span>
         <button>Add</button>
+        <span>{errors?.extraError?.message}</span>
       </form>
     </div>
   );
 }
 
 interface IFormData {
-  errors: {
-    email: {
-      message: string;
-    };
-  };
   email: string;
+  password: string;
+  passwordConfirm: string;
+  extraError?: string;
 }
 
 export default ToDoList;
