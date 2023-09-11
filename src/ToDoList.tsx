@@ -28,6 +28,19 @@ function ToDoList() {
         onSubmit={handleSubmit(onValid)}
       >
         <input
+          {...register("name", {
+            required: "write here",
+            validate: {
+              noNico: (value) =>
+                value.includes("nico") ? "no nicos allowed" : true,
+              noNick: (value) =>
+                value.includes("nick") ? "no nicks allowed" : true,
+            },
+          })}
+          placeholder="name"
+        />
+        <span>{errors?.name?.message}</span>
+        <input
           {...register("password", {
             required: true,
             minLength: 10,
@@ -60,6 +73,7 @@ function ToDoList() {
 }
 
 interface IFormData {
+  name: string;
   email: string;
   password: string;
   passwordConfirm: string;
