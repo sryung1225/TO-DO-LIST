@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import ToDoList from "./components/ToDoList";
+import { Helmet } from "react-helmet";
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,6 +51,12 @@ button {
 function App() {
   return (
     <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap"
+        />
+      </Helmet>
       <GlobalStyle />
       <ToDoList />
     </>
