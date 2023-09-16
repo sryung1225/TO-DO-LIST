@@ -7,7 +7,6 @@ function ToDo({ id, text, category }: IToDo) {
     const {
       currentTarget: { name },
     } = event;
-    console.log(name);
     setToDos((oldToDos) => {
       const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
       const newToDo = { id, text, category: name as any };
