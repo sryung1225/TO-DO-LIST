@@ -11,6 +11,11 @@ export const toDoAtom = atom<IToDo[]>({
   default: [],
 });
 
+export const categoryAtom = atom({
+  key: "category",
+  default: "TO_DO",
+});
+
 export const toDoSelector = selector({
   key: "toDoSelector",
   get: ({ get }) => {
