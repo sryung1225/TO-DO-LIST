@@ -1,9 +1,11 @@
 import { atom, selector } from "recoil";
 
+type categories = "TO_DO" | "DOING" | "DONE";
+
 export interface IToDo {
   id: number;
   text: string;
-  category: "TO_DO" | "DOING" | "DONE";
+  category: categories;
 }
 
 export const toDoAtom = atom<IToDo[]>({
@@ -11,7 +13,7 @@ export const toDoAtom = atom<IToDo[]>({
   default: [],
 });
 
-export const categoryAtom = atom({
+export const categoryAtom = atom<categories>({
   key: "category",
   default: "TO_DO",
 });
