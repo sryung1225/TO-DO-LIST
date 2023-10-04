@@ -18,6 +18,11 @@ function ToDo({ id, text, category }: IToDo) {
       ];
     });
   };
+  const deleteCategory = () => {
+    setToDos((oldToDos) => {
+      return oldToDos.filter((toDo) => toDo.id !== id);
+    });
+  };
 
   return (
     <li>
@@ -46,7 +51,7 @@ function ToDo({ id, text, category }: IToDo) {
           {current.text}
         </button>
       ))}
-      {}
+      <button onClick={deleteCategory}>삭제</button>
     </li>
   );
 }
