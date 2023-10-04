@@ -1,18 +1,18 @@
 import { atom, selector } from "recoil";
 
-export enum Categories {
-  "TO_DO" = "TO_DO",
-  "DOING" = "DOING",
-  "DONE" = "DONE",
+export enum CATE {
+  "TO_DO" = "예정",
+  "DOING" = "진행중",
+  "DONE" = "완료",
 }
 
 export interface ICustomCategory {
   text: string;
 }
 
-export const categoryAtom = atom<Categories>({
+export const categoryAtom = atom<CATE>({
   key: "category",
-  default: Categories.TO_DO,
+  default: CATE.TO_DO,
 });
 
 export const customCategoryAtom = atom<ICustomCategory[]>({
@@ -23,7 +23,7 @@ export const customCategoryAtom = atom<ICustomCategory[]>({
 export interface IToDo {
   id: number;
   text: string;
-  category: Categories;
+  category: string;
 }
 
 export const toDoAtom = atom<IToDo[]>({
