@@ -22,26 +22,28 @@ function ToDo({ id, text, category }: IToDo) {
   return (
     <li>
       <span>{text}</span>
-      {Object.values(CATE).map((currentCategory) => (
+      {Object.values(CATE).map((current) => (
         <button
-          name={currentCategory}
+          key={current}
+          name={current}
           onClick={changeCategory}
           style={{
-            display: category === currentCategory ? "none" : "inline-block",
+            display: category === current ? "none" : "inline-block",
           }}
         >
-          {currentCategory}
+          {current}
         </button>
       ))}
-      {customCategories.map((customCategory) => (
+      {customCategories.map((current) => (
         <button
-          name={customCategory.text}
+          key={current.text}
+          name={current.text}
           onClick={changeCategory}
           style={{
-            display: category === customCategory.text ? "none" : "inline-block",
+            display: category === current.text ? "none" : "inline-block",
           }}
         >
-          {customCategory.text}
+          {current.text}
         </button>
       ))}
       {}

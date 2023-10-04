@@ -17,17 +17,23 @@ function ToDoList() {
       <hr />
       <select value={categories} onInput={onInput}>
         {Object.values(CATE).map((category) => (
-          <option value={category}>{category}</option>
+          <option key={category} value={category}>
+            {category}
+          </option>
         ))}
         {customCategories?.map((category) => (
-          <option value={category.text}>{category.text}</option>
+          <option key={category.text} value={category.text}>
+            {category.text}
+          </option>
         ))}
       </select>
       <CreateCategory />
       <CreateToDo />
-      {toDos?.map((toDo) => (
-        <ToDo key={toDo.id} {...toDo} />
-      ))}
+      <ul>
+        {toDos?.map((toDo) => (
+          <ToDo key={toDo.id} {...toDo} />
+        ))}
+      </ul>
     </div>
   );
 }
