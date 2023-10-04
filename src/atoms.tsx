@@ -6,6 +6,20 @@ export enum Categories {
   "DONE" = "DONE",
 }
 
+export interface ICustomCategory {
+  text: string;
+}
+
+export const categoryAtom = atom<Categories>({
+  key: "category",
+  default: Categories.TO_DO,
+});
+
+export const customCategoryAtom = atom<ICustomCategory[]>({
+  key: "customCategory",
+  default: [],
+});
+
 export interface IToDo {
   id: number;
   text: string;
@@ -15,11 +29,6 @@ export interface IToDo {
 export const toDoAtom = atom<IToDo[]>({
   key: "toDo",
   default: [],
-});
-
-export const categoryAtom = atom<Categories>({
-  key: "category",
-  default: Categories.TO_DO,
 });
 
 export const toDoSelector = selector({
