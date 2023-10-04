@@ -24,7 +24,13 @@ const GlobalStyle = createGlobalStyle`
     text-decoration:none;
   }
   button {
+    background-color: inherit;
+    border: none;
+    font-family: omyu_pretty, sans-serif;
     cursor: pointer;
+  }
+  li {
+    list-style: none;
   }
 `;
 

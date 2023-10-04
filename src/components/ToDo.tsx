@@ -1,5 +1,6 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { CATE, IToDo, customCategoryAtom, toDoAtom } from "../atoms";
+import * as S from "../styles/components/ToDoStyle";
 
 function ToDo({ id, text, category }: IToDo) {
   const setToDos = useSetRecoilState(toDoAtom);
@@ -25,10 +26,10 @@ function ToDo({ id, text, category }: IToDo) {
   };
 
   return (
-    <li>
-      <span>{text}</span>
+    <S.Item>
+      <S.Text>{text}</S.Text>
       {Object.values(CATE).map((current) => (
-        <button
+        <S.Button
           key={current}
           name={current}
           onClick={changeCategory}
@@ -37,10 +38,10 @@ function ToDo({ id, text, category }: IToDo) {
           }}
         >
           {current}
-        </button>
+        </S.Button>
       ))}
       {customCategories.map((current) => (
-        <button
+        <S.Button
           key={current.text}
           name={current.text}
           onClick={changeCategory}
@@ -49,10 +50,10 @@ function ToDo({ id, text, category }: IToDo) {
           }}
         >
           {current.text}
-        </button>
+        </S.Button>
       ))}
-      <button onClick={deleteCategory}>삭제</button>
-    </li>
+      <S.DeleteButton onClick={deleteCategory}>삭제</S.DeleteButton>
+    </S.Item>
   );
 }
 
