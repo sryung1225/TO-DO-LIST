@@ -32,6 +32,16 @@ const GlobalStyle = createGlobalStyle`
   li {
     list-style: none;
   }
+  .a11y {
+    position: absolute !important;
+    display: inline-block;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
 `;
 
 export default GlobalStyle;

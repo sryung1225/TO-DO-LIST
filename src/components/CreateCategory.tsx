@@ -1,10 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { customCategoryAtom } from "../atoms";
+import * as S from "../styles/components/FormStyle";
 
 function CreateCategory() {
   const setCustomCategories = useSetRecoilState(customCategoryAtom);
-  const { register, handleSubmit, setValue } = useForm<IForm>();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<IForm>();
   const handleValid = ({ customCategory }: IForm) => {
     setCustomCategories((oldCategories) => [
       ...oldCategories,
@@ -13,15 +19,19 @@ function CreateCategory() {
     setValue("customCategory", "");
   };
   return (
-    <form onSubmit={handleSubmit(handleValid)}>
-      <input
+    <S.Form onSubmit={handleSubmit(handleValid)}>
+      <S.Input
         {...register("customCategory", {
-          required: "Please write a category",
+          required: "글자를 입력하고나서 추가 버튼을 눌러주세요.",
         })}
-        placeholder="Write a category"
+        type="text"
+        placeholder="새롭게 만들 상태를 작성해주세요!"
       />
-      <button>Add</button>
-    </form>
+      <S.Button type="submit">
+        <i className="a11y">상태 추가하기</i>
+      </S.Button>
+      <S.Valid>{errors?.customCategory?.message}</S.Valid>
+    </S.Form>
   );
 }
 

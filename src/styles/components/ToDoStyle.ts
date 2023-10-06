@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CRed } from "../colors";
 
 export const Item = styled.li`
   margin: 5px 0;
@@ -24,5 +25,5 @@ export const Button = styled.button`
 `;
 
 export const DeleteButton = styled(Button)`
-  color: #fc6f71;
+  color: ${CRed};
 `;
