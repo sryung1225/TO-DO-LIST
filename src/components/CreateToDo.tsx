@@ -21,19 +21,19 @@ function CreateToDo() {
   };
   console.log(errors);
   return (
-    <S.Form onSubmit={handleSubmit(handleValid)}>
-      <S.Input
+    <S.ToDoForm onSubmit={handleSubmit(handleValid)}>
+      <S.ToDoInput
         {...register("toDo", {
           required: "글자를 입력하고나서 추가 버튼을 눌러주세요.",
         })}
         type="text"
         placeholder="새로운 일을 추가해주세요!"
       />
-      <S.Button type="submit">
+      <S.ToDoButton type="submit">
         <i className="a11y">할 일 추가하기</i>
-      </S.Button>
+      </S.ToDoButton>
       <S.Valid>{errors?.toDo?.message}</S.Valid>
-    </S.Form>
+    </S.ToDoForm>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { CATE, categoryAtom, customCategoryAtom } from "../atoms";
+import * as S from "../styles/components/SelectStyle";
 
 function SelectCategory() {
   const customCategories = useRecoilValue(customCategoryAtom);
@@ -8,18 +9,23 @@ function SelectCategory() {
     setCategories(event.currentTarget.value as any);
   };
   return (
-    <select value={categories} onInput={onInput}>
-      {Object.values(CATE).map((category) => (
-        <option key={category} value={category}>
-          {category}
-        </option>
-      ))}
-      {customCategories?.map((category) => (
-        <option key={category.text} value={category.text}>
-          {category.text}
-        </option>
-      ))}
-    </select>
+    <S.Wrapper>
+      <S.Select value={categories} onInput={onInput}>
+        <S.Option disabled selected>
+          상태 선택 😶
+        </S.Option>
+        {Object.values(CATE).map((category) => (
+          <S.Option key={category} value={category}>
+            {category}
+          </S.Option>
+        ))}
+        {customCategories?.map((category) => (
+          <S.Option key={category.text} value={category.text}>
+            {category.text}
+          </S.Option>
+        ))}
+      </S.Select>
+    </S.Wrapper>
   );
 }
 

@@ -12,11 +12,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: omyu_pretty, sans-serif;
   }
   body {
     height: 100vh;
     background-color: ${(props) => props.theme.bgColor};;
-    font-family: omyu_pretty, sans-serif;
     color: ${(props) => props.theme.textColor};
   }
   a {
@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   button {
     background-color: inherit;
     border: none;
-    font-family: omyu_pretty, sans-serif;
     cursor: pointer;
   }
   li {

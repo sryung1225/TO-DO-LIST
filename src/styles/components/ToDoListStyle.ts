@@ -20,13 +20,15 @@ export const Title = styled.h1`
 export const Category = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
+  width: 300px;
+  margin: 0 auto;
   padding: 20px 0;
 `;
 
 export const Status = styled.span`
   display: inline-block;
-  margin: 0 0 -10px auto;
+  margin: 50px 0 -10px auto;
   padding: 5px 10px;
   font-size: 26px;
   color: #fff;

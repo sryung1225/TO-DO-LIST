@@ -25,7 +25,7 @@ function CreateCategory() {
           required: "글자를 입력하고나서 추가 버튼을 눌러주세요.",
         })}
         type="text"
-        placeholder="새롭게 만들 상태를 작성해주세요!"
+        placeholder="상태를 추가해주세요!"
       />
       <S.Button type="submit">
         <i className="a11y">상태 추가하기</i>

@@ -4,18 +4,17 @@ import { CRed } from "../colors";
 export const Form = styled.form`
   position: relative;
   display: inline-block;
-  width: 280px;
-  height: 40px;
-  font-size: 30px;
+  width: 100%;
 `;
 
 export const Input = styled.input`
   display: inline-block;
-  width: 280px;
+  width: 100%;
   height: 40px;
   padding: 5px 36px 5px 10px;
   border: 2px solid ${(props) => props.theme.accentColor};
   border-radius: 10px;
+  font-size: 18px;
 `;
 
 export const Button = styled.button`
@@ -29,7 +28,7 @@ export const Button = styled.button`
   &::after {
     content: "";
     position: absolute;
-    top: 25%;
+    top: calc(50% - 8px);
     left: 50%;
     width: 2px;
     height: 16px;
@@ -45,4 +44,22 @@ export const Valid = styled.p`
   color: ${CRed};
   font-size: 14px;
   text-align: left;
+`;
+
+/* CreateToDo */
+export const ToDoForm = styled(Form)`
+  font-size: 40px;
+`;
+
+export const ToDoInput = styled(Input)`
+  height: 50px;
+`;
+
+export const ToDoButton = styled(Button)`
+  height: 48px;
+  &::before,
+  &::after {
+    top: calc(50% - 10px);
+    height: 20px;
+  }
 `;
