@@ -4,7 +4,7 @@ ReactJS와 TypeScript를 이용해서 <br>
 
 to do 리스트를 제공하는 웹페이지 <b>"오늘 할 일"</b>을 제작했습니다.
 
-| https://sryung1225.github.io/TODAY-TO-DO
+> https://sryung1225.github.io/TODAY-TO-DO
 
 ![today-to-do](./assets/all-in-one.gif) <br>
 
